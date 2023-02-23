@@ -15,16 +15,18 @@ const GlobalStyles = createGlobalStyle`
             width: 0.5rem;
         }
         &::-webkit-scrollbar-thumb{
-            background-color: darkgoldenrod;
+            background-color: #d0421b;
         }
     }
     body{
         font-family: 'Tilt Neon', cursive ; 
         width: 100%;
+        background: whitesmoke;
     }
     h2{
         font-size: 3rem;
-        font-family: 'Orbitron', sans-serif;
+        /* font-family: 'Orbitron', sans-serif; */
+        font-family: 'Carter One', cursive;
         color: crimson;
     }
     h3{
