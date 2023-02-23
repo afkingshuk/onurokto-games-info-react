@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 //redux
 import { useSelector } from "react-redux";
 
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { smallImage } from "../util";
 
 const GameDetail = () => {
   const history = useNavigate();
@@ -39,14 +40,18 @@ const GameDetail = () => {
               </Info>
             </Stats>
             <Media>
-              <img src={game.background_image} alt="game_bg" />
+              <img src={smallImage(game.background_image, 640)} alt="game_bg" />
             </Media>
             <Description>
               <p>{game.description_raw}</p>
             </Description>
             <div className="gallery">
               {screenshots.results?.map((screenshots) => (
-                <img src={screenshots.image} key={screenshots.id} alt="game" />
+                <img
+                  src={smallImage(screenshots.image, 640)}
+                  key={screenshots.id}
+                  alt="game"
+                />
               ))}
             </div>
           </Detail>
