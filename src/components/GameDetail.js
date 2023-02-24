@@ -28,6 +28,10 @@ const GameDetail = ({ pathId }) => {
       history("/");
     }
   };
+  const exitDetailButtonHandler = (e) => {
+    document.body.style.overflow = "auto";
+    history("/");
+  };
   //get stars
   const getStars = () => {
     const stars = [];
@@ -68,6 +72,7 @@ const GameDetail = ({ pathId }) => {
           <Detail layoutId={pathId}>
             <Stats>
               <div className="rating">
+                <button onClick={exitDetailButtonHandler}>X</button>
                 <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                 <p>Rating {game.rating}</p>
                 {getStars()}
@@ -152,6 +157,11 @@ const Detail = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 1300px) {
+    width: 90%;
+    left: 5%;
+    padding: 1rem 1rem;
+  }
 `;
 
 const Stats = styled(motion.div)`
@@ -163,9 +173,35 @@ const Stats = styled(motion.div)`
     height: 2rem;
     display: inline;
   }
+  button {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 0.25rem solid crimson;
+    background: white;
+    padding: 0.125rem 0.25rem;
+    color: crimson;
+  }
+  @media (max-width: 1300px) {
+    padding: 0rem 0rem;
+    p {
+      font-size: 1rem;
+    }
+    img {
+      width: 1rem;
+      height: 1rem;
+      display: inline;
+    }
+  }
 `;
 const Info = styled(motion.div)`
   text-align: center;
+  @media (max-width: 1300px) {
+    padding: 0rem 0rem;
+    h3 {
+      font-size: 1rem;
+    }
+  }
 `;
 const Platforms = styled(motion.div)`
   display: flex;
@@ -173,16 +209,36 @@ const Platforms = styled(motion.div)`
   img {
     margin-left: 3rem;
   }
+  @media (max-width: 1300px) {
+    padding: 0rem 0rem;
+    h3 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    img {
+      margin-left: 1rem;
+    }
+  }
 `;
 const Media = styled(motion.div)`
   margin-top: 5rem;
   img {
     width: 100%;
   }
+  @media (max-width: 1300px) {
+    margin-top: 1rem;
+  }
 `;
 
 const Description = styled(motion.div)`
-  margin: 5rem 0rem;
+  margin: 2rem 0rem;
+  @media (max-width: 1300px) {
+    p {
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export default GameDetail;
