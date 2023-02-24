@@ -5,7 +5,8 @@ import logo from "../img/logo.png";
 //redux and routes
 import { fetchSearch } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
-
+//animation
+import { fadeIn } from "../animations";
 const Nav = () => {
   const dispatch = useDispatch();
   const [textInput, setTextInput] = useState("");
@@ -20,7 +21,7 @@ const Nav = () => {
   };
   const clearSearched = () => [dispatch({ type: "CLEAR_SEARCHED" })];
   return (
-    <StyledNav>
+    <StyledNav variants={fadeIn} initial="hidden" animate="show">
       <Logo onClick={clearSearched}>
         <img src={logo} alt="" />
         <h1>Onurokto Gamers</h1>
