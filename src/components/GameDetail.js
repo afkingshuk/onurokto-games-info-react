@@ -89,7 +89,11 @@ const GameDetail = ({ pathId }) => {
             <Media>
               <motion.img
                 layoutId={`image ${pathId}`}
-                src={smallImage(game.background_image, 640)}
+                src={
+                  game.background_image
+                    ? smallImage(game.background_image, 640)
+                    : game.background_image
+                }
                 alt="game_bg"
               />
             </Media>
@@ -99,7 +103,11 @@ const GameDetail = ({ pathId }) => {
             <div className="gallery">
               {screenshots.results?.map((screenshots) => (
                 <img
-                  src={smallImage(screenshots.image, 640)}
+                  src={
+                    screenshots.image
+                      ? smallImage(screenshots.image, 640)
+                      : screenshots.image
+                  }
                   key={screenshots.id}
                   alt="game"
                 />

@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import logo from "../img/logo.png";
+//redux and routes
+import { fetchSearch } from "../actions/gamesAction";
+import { useDispatch } from "react-redux";
 
-const nav = () => {
+const Nav = () => {
+  const dispatch = useDispatch();
+  const [textInput, setTextInput] = useState("");
+
+  const inputHandler = (e) => {
+    setTextInput(e.target.value);
+  };
+  const submitSearch = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearch(textInput));
+    setTextInput("");
+  };
+  const clearSearched = () => [dispatch({ type: "CLEAR_SEARCHED" })];
   return (
     <StyledNav>
-      <Logo>
+      <Logo onClick={clearSearched}>
         <img src={logo} alt="" />
         <h1>Onurokto Gamers</h1>
         {/* <h1>অনুরক্ত গেমারস</h1> */}
       </Logo>
-      <div className="search">
-        <input type="text" />
-        <button>Search</button>
-      </div>
+      <form className="search">
+        <input value={textInput} onChange={inputHandler} type="text" />
+        <button type="submit" onClick={submitSearch}>
+          Search
+        </button>
+      </form>
     </StyledNav>
   );
 };
@@ -57,10 +74,11 @@ const Logo = styled(motion.div)`
     font-size: 3rem;
     /* color: crimson; */
     /* background: -webkit-linear-gradient(#DC143C, #000000); */
+    background-clip: text;
     background: -webkit-radial-gradient(20% 50%, #e43838, crimson);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 `;
 
-export default nav;
+export default Nav;

@@ -1,7 +1,7 @@
 import React from "react";
 //components and pages
 import Home from "./pages/Home";
-import Nav from "./components/nav";
+import Nav from "./components/Nav";
 //style
 import GlobalStyles from "./components/GlobalStyles";
 //routes

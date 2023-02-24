@@ -58,3 +58,8 @@ export const gameDetailsURL = (game_id) =>
 // https://api.rawg.io/api/games/72568/screenshots?key={key}
 export const gameScreenshotURL = (game_id) =>
   `${base_url}${type}/${game_id}/screenshots?key=${REACT_APP_RAWG_API_KEY}`;
+//searched game
+// https://api.rawg.io/api/games?key={key}&search=stalker
+// https://api.rawg.io/api/games?key=2b4031d233ae4422a15d4b1ee00ef77e&search=stalker&page_size=9
+export const searchGameURL = (game_name) =>
+  `${base_url}${type}?key=${REACT_APP_RAWG_API_KEY}&search=${game_name}&page_size=9/`;
