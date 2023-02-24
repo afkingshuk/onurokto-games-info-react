@@ -7,6 +7,7 @@ import { fetchSearch } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
 //animation
 import { fadeIn } from "../animations";
+
 const Nav = () => {
   const dispatch = useDispatch();
   const [textInput, setTextInput] = useState("");
@@ -59,6 +60,28 @@ const StyledNav = styled(motion.div)`
     background: -webkit-radial-gradient(50% 50%, #d44040, crimson);
     color: whitesmoke;
   }
+  @media (max-width: 1300px) {
+    padding: 1rem 0.5rem;
+    input {
+      width: 80%;
+      font-size: 1rem;
+      font-family: "Tilt Neon", cursive;
+      background: white;
+      padding: 0.25rem;
+      border: none;
+      margin-top: 0.5rem;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      font-size: 1rem;
+      border: none;
+      padding: 0.25rem 0.25rem;
+      cursor: pointer;
+      /* background: crimson; */
+      background: -webkit-radial-gradient(50% 50%, #d44040, crimson);
+      color: whitesmoke;
+    }
+  }
 `;
 
 const Logo = styled(motion.div)`
@@ -73,12 +96,24 @@ const Logo = styled(motion.div)`
   }
   h1 {
     font-size: 3rem;
-    /* color: crimson; */
-    /* background: -webkit-linear-gradient(#DC143C, #000000); */
     background-clip: text;
     background: -webkit-radial-gradient(20% 50%, #e43838, crimson);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  @media (max-width: 1300px) {
+    img {
+      height: 2rem;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      background-clip: text;
+      background: -webkit-radial-gradient(20% 50%, #e43838, crimson);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 `;
 

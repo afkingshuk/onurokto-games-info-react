@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar-thumb{
             background-color: #d0421b;
         }
+        
+        
     }
     body{
         font-family: 'Tilt Neon', cursive ; 
@@ -35,9 +37,11 @@ const GlobalStyles = createGlobalStyle`
         padding: 1.5rem 0rem;
     } 
     p{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         line-height: 200%;
-        color: darksalmon;
+        color: black;
+        
+
     }
     a{
         text-decoration: none;
@@ -45,7 +49,11 @@ const GlobalStyles = createGlobalStyle`
     } 
     img{
         display: block;
+        @media (max-width: 1300px){
+        font-size: 75%;
+        }
     }
+   
 `;
 
 export default GlobalStyles;

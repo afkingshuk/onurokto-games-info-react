@@ -36,8 +36,7 @@ const Home = () => {
         {searched.length ? (
           <Searched>
             <h2>
-              Searched games{" "}
-              <button onClick={clearSearched}>Close search X</button>
+              Searched games <button onClick={clearSearched}>X</button>
             </h2>
             <Games>
               {searched.map((game) => (
@@ -100,6 +99,15 @@ const GameList = styled(motion.div)`
   h2 {
     padding: 5rem 0rem;
   }
+  @media (max-width: 1300px) {
+    padding: 0rem 2rem;
+    min-height: 20vh;
+    h2 {
+      padding: 1rem 0rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
 `;
 const Games = styled(motion.div)`
   min-height: 80vh;
@@ -107,10 +115,25 @@ const Games = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+  @media (max-width: 1300px) {
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
+  @media (max-width: 700px) {
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
 `;
 
 const Searched = styled(motion.div)`
   button {
+    font-family: "Orbitron", sans-serif;
     justify-content: center;
     font-size: 1.5rem;
     border: none;
@@ -119,6 +142,18 @@ const Searched = styled(motion.div)`
     /* background: crimson; */
     background: -webkit-radial-gradient(50% 50%, #d44040, crimson);
     color: whitesmoke;
+  }
+  @media (max-width: 1300px) {
+    button {
+      justify-content: center;
+      font-size: 1rem;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      /* background: crimson; */
+      background: -webkit-radial-gradient(50% 50%, #d44040, crimson);
+      color: whitesmoke;
+    }
   }
 `;
 export default Home;
